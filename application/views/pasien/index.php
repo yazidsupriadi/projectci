@@ -26,7 +26,43 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Data Pasien</h1>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>kode</th>
+                                <th>nama</th>
+                                <th>Jenis Kelamin</th>
+                                <th>tempat lahir</th>
+                                <th>tanggal lahir</th>
+                                <th>email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                foreach($pasien->result() as $pasien){
+                                    echo '
+                                    <tr>
+                                        <td>'.$pasien->kode.'</td>
+                                        <td>'.$pasien->nama.'</td>
+                                        <td>'.$pasien->gender.'</td>
+                                        <td>'.$pasien->tmp_lahir.'</td>
+                                        <td>'.$pasien->tgl_lahir.'</td>
+                                        <td>'.$pasien->email.'</td>
+                                        <td>
+                                        <a href="'.base_url().'index.php/pasien/view/'.$pasien->id.'">View</a>
+                                        <a href="'.base_url().'index.php/pasien/delete/'.$pasien->id.'" onclick="return confirm("Are you sure you want to delete this item?")">Delete</a>
+                                        </td>
+                                        
+                                    </tr>';
+                                }
+                            ?>
+                        </tbody>
+                    
+                    
+                    </table>
 
                 </div>
                 <!-- /.container-fluid -->
