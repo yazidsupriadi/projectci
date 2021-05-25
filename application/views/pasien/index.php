@@ -25,6 +25,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <a href="<?= base_url()?>index.php/pasien/add" class="btn btn-primary">add</a>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Data Pasien</h1>
 
@@ -53,6 +54,7 @@
                                         <td>'.$pasien->email.'</td>
                                         <td>
                                         <a href="'.base_url().'index.php/pasien/view/'.$pasien->id.'">View</a>
+                                        <a href="'.base_url().'index.php/pasien/edit/'.$pasien->id.'">Edit</a>
                                         <a href="'.base_url().'index.php/pasien/delete/'.$pasien->id.'" onclick="return confirm("Are you sure you want to delete this item?")">Delete</a>
                                         </td>
                                         
