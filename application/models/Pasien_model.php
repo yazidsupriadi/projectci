@@ -13,6 +13,8 @@ class Pasien_model extends CI_Model{
 
     public function getAll(){
         //select * from pasien
+
+        //this->db->get('nama_tabel')
         $query = $this->db->get('pasien');
         return $query;
 
@@ -21,25 +23,33 @@ class Pasien_model extends CI_Model{
     public function findById($id){
         //select * from pasien where id = $id
         
+        //$this->db->get_where('nama_tabel',array id)
         return $this->db->get_where('pasien', ["id" => $id])->row();
     }
 
     public function delete($where,$table){
+
+        //delete from pasien where id = id
         $this->db->where($where);
         $this->db->delete($table);
     }
 
-    function save($data)
-	{
-        return $this->db->insert('pasien',$data);
-        
-	}
+    //add data
+
+    public function save($data){
+        //$this->db->insert('nama_tabel',data)
+        $this->db->insert('pasien',$data);
+    }
 
 
-    
-    public function update($data,$id)
-    {
-        return $this->db->update('pasien', $data, array('id' => $id));
+
+    //edit data
+   
+    public function update($data,$id){
+       
+        //$this->db->update('nama_tabel',data,array_id)
+
+        $this->db->update('pasien',$data,array('id'=>$id));
     }
 
 }
