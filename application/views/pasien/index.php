@@ -26,6 +26,8 @@
                 <div class="container-fluid">
 
                     <a href="<?= base_url()?>index.php/pasien/add" class="btn btn-primary">add</a>
+                    
+                    <a href="<?= base_url()?>index.php/login/logout" class="btn btn-primary">Logout</a>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Data Pasien</h1>
 
