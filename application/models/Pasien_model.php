@@ -52,6 +52,25 @@ class Pasien_model extends CI_Model{
         $this->db->update('pasien',$data,array('id'=>$id));
     }
 
+    //fungsi upload foto    
+    public function upload_foto(){
+        
+		$config['upload_path']         = 'img/';  // folder upload tujuan 
+		$config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
+		$config['max_size']             = 3000; //maksimal ukuran file
+		$config['max_width']            = 1024; //maksimal lebar gambar
+		$config['max_height']           = 768;// maksimal tinggi gambar
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto')) { //parameter foto diambil dari nama column database
+            return $this->upload->data("file_name");
+        }
+        
+        return "default.png";
+
+    }
+
 }
 
 

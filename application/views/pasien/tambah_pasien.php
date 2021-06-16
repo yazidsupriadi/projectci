@@ -34,7 +34,8 @@
 				<?php
 			}
 			?>
-                    <form action="<?=base_url();?>index.php/pasien/save" class="form-group" method="post">
+            
+                        <?php echo form_open_multipart('pasien/save'); ?>
                         <label for="">Nama</label>
                         <input type="text" name="nama" placeholder="masukan nama pasien" class="form-control">
                         
@@ -51,8 +52,13 @@
                         
                         <label for="">Email</label>
                         <input type="text" name="email" placeholder="masukan email pasien" class="form-control">
+
+                        <!--input gambar-->
+                        <label for="">Upload foto</label>
+                        <input type="file" name="foto">
+
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                    </form>
+                        <?php echo form_close() ?>
                 </div>
                 <!-- /.container-fluid -->
 

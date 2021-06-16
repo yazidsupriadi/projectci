@@ -20,6 +20,13 @@ class Pasien extends CI_Controller {
 		$this->load->view('pasien/index',$data);
 	}
 
+	public function view($id){
+		
+		$this->load->model('pasien_model');
+		$data['pasien'] = $this->pasien_model->findById($id);
+		$this->load->view('pasien/view',$data);
+	}
+
 	public function delete($id){
         
 		//untuk menghapus data
@@ -50,7 +57,7 @@ class Pasien extends CI_Controller {
 		$data['tmp_lahir'] =$this->input->post('tmp_lahir');
 		$data['tgl_lahir'] =$this->input->post('tgl_lahir');
 		$data['email'] =$this->input->post('email');
-		
+		$data['foto'] = $this->pasien_model->upload_foto();//ambil fungsi upload foto dari model
 		$this->pasien_model->save($data);
 		redirect('pasien/index');
 	}
@@ -77,6 +84,12 @@ class Pasien extends CI_Controller {
 		$data['tgl_lahir'] =$this->input->post('tgl_lahir');
 		$data['email'] =$this->input->post('email');
 		
+		//upload file
+		if (!empty($_FILES["foto"]["name"])) {//array foto diambil dari name inputan
+			$data['foto'] = $this->pasien_model->upload_foto(); //array foto dari nama column di db
+		} else {
+			$data['foto'] = $post["old_image"];
+		}
 		$this->pasien_model->update($data,$id);
 		redirect('pasien/index');
 	}

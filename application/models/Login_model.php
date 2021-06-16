@@ -8,6 +8,11 @@ class Login_model extends CI_Model{
     }
 
 
+    public function register_user($table,$data){
+        return $this->db->insert($table,$data);
+    }
+
+
 }
 
 

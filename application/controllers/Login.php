@@ -44,6 +44,22 @@ class Login extends CI_Controller{
         redirect('login/login');
     }
 
+    public function register(){
+        $this->load->view('login/register');
+    }
+
+    public function aksi_register(){
+
+        $data['username'] = $this->input->post('username');
+		$data['password'] = md5($this->input->post('password'));
+		//method save data
+		$this->login_model->register_user('user',$data);
+
+		//redirect	
+		return redirect('pasien/index');
+    }
+
+
 
 }
 

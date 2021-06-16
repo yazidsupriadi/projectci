@@ -24,38 +24,48 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-           
-                <?php echo form_open_multipart('pasien/update'); ?>
-                    
-				<input type="hidden" name="id" id="id" value="<?php echo $pasien->id; ?>"/>
-				<input type="hidden" name="kode" id="kode" value="<?php echo $pasien->kode; ?>"/>
-                        <label for="">Nama</label>
-                        <input type="text" name="nama" placeholder="masukan nama pasien" value="<?= $pasien->nama?>" class="form-control">
-                        
-                        <select name="gender" id="" class="form-control mt-3 mb-3">
-                            <option value="">Pilih Jenis Kelamin</option>
-                            <option value="L">Laki Laki</option>
-                            <option value="P">Perempuan</option>
-                        </select>
-                        
-                        <label for="">Tempat Lahir</label>
-                        <input type="text" name="tmp_lahir" placeholder="masukan nama pasien" value="<?= $pasien->tmp_lahir?>"class="form-control">
-                        <label for="">Tanggal Lahir</label>
-                        <input type="date" name="tgl_lahir" placeholder="masukan nama pasien" class="form-control" value="<?= $pasien->tgl_lahir?>">
-                        
-                        <label for="">Email</label>
-                        <input type="text" name="email" placeholder="masukan email pasien" class="form-control" value="<?= $pasien->email?>">
 
-                         <label for="">Foto lama</label>
-                        <img src="<?=base_url().'/img/'.$pasien->foto?>"  alt="" width="100" height="100">
-                        <input type="hidden" name="old_image" >
-                        
-                        <label for="">Upload foto</label>
-                        <input type="file" name="foto">
-           
-                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                    
-                        <?php echo form_close(); ?>
+                 <h3>Detail Pasien</h3>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                            <img src="<?=base_url().'/img/'.$pasien->foto?>" height="200px" class="card-img-top " alt="...">
+                            <div class="card-body">
+                                    <h5 class="card-title"><?=$pasien->nama?></h5>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="bg-primary text-white">Name :</td>
+                                            <td><?= $pasien->nama?></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="bg-primary text-white">Email :</td>
+                                            <td><?= $pasien->email?></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="bg-primary text-white">Tanggal Lahir :</td>
+                                            <td><?= $pasien->tgl_lahir?></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="bg-primary text-white">Tempat Lahir :</td>
+                                            <td><?= $pasien->tmp_lahir?></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- /.container-fluid -->
 
