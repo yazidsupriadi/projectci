@@ -19,6 +19,9 @@ class Pasien extends CI_Controller {
 		$data['pasien'] = $this->pasien_model->getAll(); //query select all data
 		$this->load->view('pasien/index',$data);
 	}
+	public function gempa(){
+		$this->load->view('pasien/gempa');
+	}
 
 	public function view($id){
 		
